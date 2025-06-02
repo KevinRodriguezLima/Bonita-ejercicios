@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:decision="http://www.bonitasoft.org/ns/bpm/process/decision" xmlns:expression="http://www.bonitasoft.org/ns/bpm/expression" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:process="http://www.bonitasoft.org/ns/bpm/process">
+  <process:MainProcess xmi:id="_APko0D9eEfCjzYkFkhOnBQ" name="DiagramaSolicitudVacaciones" version="2.1.0" bonitaModelVersion="8">
+    <elements xmi:type="process:Pool" xmi:id="_APko0T9eEfCjzYkFkhOnBQ" name="SolicitudVacaciones" version="2.1.0">
+      <elements xmi:type="process:Lane" xmi:id="_APko0j9eEfCjzYkFkhOnBQ" name="Empleado (lane) " actor="_APkpOz9eEfCjzYkFkhOnBQ">
+        <elements xmi:type="process:StartEvent" xmi:id="_APko0z9eEfCjzYkFkhOnBQ" name="Ingresar solicitud" outgoing="_APkpIj9eEfCjzYkFkhOnBQ">
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="_APko1D9eEfCjzYkFkhOnBQ" name="" content="" returnTypeFixed="true"/>
+          <dynamicDescription xmi:type="expression:Expression" xmi:id="_APko1T9eEfCjzYkFkhOnBQ" name="" content="" returnTypeFixed="true"/>
+          <stepSummary xmi:type="expression:Expression" xmi:id="_APko1j9eEfCjzYkFkhOnBQ" name="" content="" returnTypeFixed="true"/>
+        </elements>
+        <elements xmi:type="process:Task" xmi:id="_APko1z9eEfCjzYkFkhOnBQ" name="Validar solicitud" outgoing="_APkpJT9eEfCjzYkFkhOnBQ" incoming="_APkpIj9eEfCjzYkFkhOnBQ" overrideActorsOfTheLane="false">
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="_APko2D9eEfCjzYkFkhOnBQ" name="" content="" returnTypeFixed="true"/>
+          <dynamicDescription xmi:type="expression:Expression" xmi:id="_APko2T9eEfCjzYkFkhOnBQ" name="" content="" returnTypeFixed="true"/>
+          <stepSummary xmi:type="expression:Expression" xmi:id="_APko2j9eEfCjzYkFkhOnBQ" name="" content="" returnTypeFixed="true"/>
+          <operations xmi:type="expression:Operation" xmi:id="_APko2z9eEfCjzYkFkhOnBQ">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_APko3D9eEfCjzYkFkhOnBQ" name="solicitud" content="solicitud" type="TYPE_VARIABLE" returnType="com.company.model.SolicitudVacaciones">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_APko3T9eEfCjzYkFkhOnBQ" name="solicitud" dataType="_APkpWT9eEfCjzYkFkhOnBQ" className="com.company.model.SolicitudVacaciones"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_APko3j9eEfCjzYkFkhOnBQ" name="solicitudInput.estaAprobado" content="solicitudInput?.estaAprobado" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Boolean">
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_APko3z9eEfCjzYkFkhOnBQ" name="solicitudInput" type="COMPLEX" createMode="false"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_APko4D9eEfCjzYkFkhOnBQ" type="JAVA_METHOD" expression="setEstaAprobado">
+              <inputTypes>java.lang.Boolean</inputTypes>
+            </operator>
+          </operations>
+          <loopCondition xmi:type="expression:Expression" xmi:id="_APko4T9eEfCjzYkFkhOnBQ" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+          <loopMaximum xmi:type="expression:Expression" xmi:id="_APko4j9eEfCjzYkFkhOnBQ" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
+          <cardinalityExpression xmi:type="expression:Expression" xmi:id="_APko4z9eEfCjzYkFkhOnBQ" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
+          <iteratorExpression xmi:type="expression:Expression" xmi:id="_APko5D9eEfCjzYkFkhOnBQ" name="multiInstanceIterator" content="multiInstanceIterator" type="MULTIINSTANCE_ITERATOR_TYPE" returnType="java.lang.Object" returnTypeFixed="true"/>
+          <completionCondition xmi:type="expression:Expression" xmi:id="_APko5T9eEfCjzYkFkhOnBQ" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+          <BoundaryIntermediateEvents xmi:type="process:NonInterruptingBoundaryTimerEvent" xmi:id="_APko5j9eEfCjzYkFkhOnBQ" name="Enviar recordatorio después de 5s." outgoing="_APkpNT9eEfCjzYkFkhOnBQ">
+            <condition xmi:type="expression:Expression" xmi:id="_APko5z9eEfCjzYkFkhOnBQ" name="00:00:05" content="5000L" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Long"/>
+          </BoundaryIntermediateEvents>
+          <formMapping xmi:type="process:FormMapping" xmi:id="_APko6D9eEfCjzYkFkhOnBQ">
+            <targetForm xmi:type="expression:Expression" xmi:id="_QS4pED_aEfCjzYkFkhOnBQ" name="validarSolicitudVacaciones" content="7e2d0ae4-ecb6-46fe-b87f-d67ae83cb61a" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+          </formMapping>
+          <contract xmi:type="process:Contract" xmi:id="_APko6j9eEfCjzYkFkhOnBQ">
+            <inputs xmi:type="process:ContractInput" xmi:id="_APko6z9eEfCjzYkFkhOnBQ" name="solicitudInput" type="COMPLEX" dataReference="solicitud" createMode="false">
+              <inputs xmi:type="process:ContractInput" xmi:id="_APko7D9eEfCjzYkFkhOnBQ" name="estaAprobado" type="BOOLEAN" createMode="false"/>
+            </inputs>
+          </contract>
+          <expectedDuration xmi:type="expression:Expression" xmi:id="_APko7T9eEfCjzYkFkhOnBQ" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
+        </elements>
+        <elements xmi:type="process:XORGateway" xmi:id="_APko7j9eEfCjzYkFkhOnBQ" name="Compuerta1" outgoing="_APkpKD9eEfCjzYkFkhOnBQ _APkpLD9eEfCjzYkFkhOnBQ" incoming="_APkpJT9eEfCjzYkFkhOnBQ">
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="_APko7z9eEfCjzYkFkhOnBQ" name="" content="" returnTypeFixed="true"/>
+          <dynamicDescription xmi:type="expression:Expression" xmi:id="_APko8D9eEfCjzYkFkhOnBQ" name="" content="" returnTypeFixed="true"/>
+          <stepSummary xmi:type="expression:Expression" xmi:id="_APko8T9eEfCjzYkFkhOnBQ" name="" content="" returnTypeFixed="true"/>
+        </elements>
+        <elements xmi:type="process:ServiceTask" xmi:id="_APko8j9eEfCjzYkFkhOnBQ" name="Notificar aprobación" outgoing="_APkpLz9eEfCjzYkFkhOnBQ" incoming="_APkpKD9eEfCjzYkFkhOnBQ">
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="_APko8z9eEfCjzYkFkhOnBQ" name="" content="" returnTypeFixed="true"/>
+          <dynamicDescription xmi:type="expression:Expression" xmi:id="_APko9D9eEfCjzYkFkhOnBQ" name="" content="" returnTypeFixed="true"/>
+          <stepSummary xmi:type="expression:Expression" xmi:id="_APko9T9eEfCjzYkFkhOnBQ" name="" content="" returnTypeFixed="true"/>
+          <loopCondition xmi:type="expression:Expression" xmi:id="_APko9j9eEfCjzYkFkhOnBQ" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+          <loopMaximum xmi:type="expression:Expression" xmi:id="_APko9z9eEfCjzYkFkhOnBQ" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
+          <cardinalityExpression xmi:type="expression:Expression" xmi:id="_APko-D9eEfCjzYkFkhOnBQ" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
+          <iteratorExpression xmi:type="expression:Expression" xmi:id="_APko-T9eEfCjzYkFkhOnBQ" name="multiInstanceIterator" content="multiInstanceIterator" type="MULTIINSTANCE_ITERATOR_TYPE" returnType="java.lang.Object" returnTypeFixed="true"/>
+          <completionCondition xmi:type="expression:Expression" xmi:id="_APko-j9eEfCjzYkFkhOnBQ" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+        </elements>
+        <elements xmi:type="process:ServiceTask" xmi:id="_APko-z9eEfCjzYkFkhOnBQ" name="Notificar rechazo" outgoing="_APkpMj9eEfCjzYkFkhOnBQ" incoming="_APkpLD9eEfCjzYkFkhOnBQ">
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="_APko_D9eEfCjzYkFkhOnBQ" name="" content="" returnTypeFixed="true"/>
+          <dynamicDescription xmi:type="expression:Expression" xmi:id="_APko_T9eEfCjzYkFkhOnBQ" name="" content="" returnTypeFixed="true"/>
+          <stepSummary xmi:type="expression:Expression" xmi:id="_APko_j9eEfCjzYkFkhOnBQ" name="" content="" returnTypeFixed="true"/>
+          <loopCondition xmi:type="expression:Expression" xmi:id="_APko_z9eEfCjzYkFkhOnBQ" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+          <loopMaximum xmi:type="expression:Expression" xmi:id="_APkpAD9eEfCjzYkFkhOnBQ" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
+          <cardinalityExpression xmi:type="expression:Expression" xmi:id="_APkpAT9eEfCjzYkFkhOnBQ" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
+          <iteratorExpression xmi:type="expression:Expression" xmi:id="_APkpAj9eEfCjzYkFkhOnBQ" name="multiInstanceIterator" content="multiInstanceIterator" type="MULTIINSTANCE_ITERATOR_TYPE" returnType="java.lang.Object" returnTypeFixed="true"/>
+          <completionCondition xmi:type="expression:Expression" xmi:id="_APkpAz9eEfCjzYkFkhOnBQ" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+        </elements>
+        <elements xmi:type="process:EndEvent" xmi:id="_APkpBD9eEfCjzYkFkhOnBQ" name="Solicitud aprobada" incoming="_APkpLz9eEfCjzYkFkhOnBQ">
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="_APkpBT9eEfCjzYkFkhOnBQ" name="" content="" returnTypeFixed="true"/>
+          <dynamicDescription xmi:type="expression:Expression" xmi:id="_APkpBj9eEfCjzYkFkhOnBQ" name="" content="" returnTypeFixed="true"/>
+          <stepSummary xmi:type="expression:Expression" xmi:id="_APkpBz9eEfCjzYkFkhOnBQ" name="" content="" returnTypeFixed="true"/>
+        </elements>
+        <elements xmi:type="process:EndEvent" xmi:id="_APkpCD9eEfCjzYkFkhOnBQ" name="Solicitud rechazada" incoming="_APkpMj9eEfCjzYkFkhOnBQ">
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="_APkpCT9eEfCjzYkFkhOnBQ" name="" content="" returnTypeFixed="true"/>
+          <dynamicDescription xmi:type="expression:Expression" xmi:id="_APkpCj9eEfCjzYkFkhOnBQ" name="" content="" returnTypeFixed="true"/>
+          <stepSummary xmi:type="expression:Expression" xmi:id="_APkpCz9eEfCjzYkFkhOnBQ" name="" content="" returnTypeFixed="true"/>
+        </elements>
+        <elements xmi:type="process:ServiceTask" xmi:id="_APkpDD9eEfCjzYkFkhOnBQ" name="Enviar recordatorio de validación" outgoing="_APkpOD9eEfCjzYkFkhOnBQ" incoming="_APkpNT9eEfCjzYkFkhOnBQ">
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="_APkpDT9eEfCjzYkFkhOnBQ" name="" content="" returnTypeFixed="true"/>
+          <dynamicDescription xmi:type="expression:Expression" xmi:id="_APkpDj9eEfCjzYkFkhOnBQ" name="" content="" returnTypeFixed="true"/>
+          <stepSummary xmi:type="expression:Expression" xmi:id="_APkpDz9eEfCjzYkFkhOnBQ" name="" content="" returnTypeFixed="true"/>
+          <loopCondition xmi:type="expression:Expression" xmi:id="_APkpED9eEfCjzYkFkhOnBQ" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+          <loopMaximum xmi:type="expression:Expression" xmi:id="_APkpET9eEfCjzYkFkhOnBQ" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
+          <cardinalityExpression xmi:type="expression:Expression" xmi:id="_APkpEj9eEfCjzYkFkhOnBQ" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
+          <iteratorExpression xmi:type="expression:Expression" xmi:id="_APkpEz9eEfCjzYkFkhOnBQ" name="multiInstanceIterator" content="multiInstanceIterator" type="MULTIINSTANCE_ITERATOR_TYPE" returnType="java.lang.Object" returnTypeFixed="true"/>
+          <completionCondition xmi:type="expression:Expression" xmi:id="_APkpFD9eEfCjzYkFkhOnBQ" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+        </elements>
+        <elements xmi:type="process:EndEvent" xmi:id="_APkpFT9eEfCjzYkFkhOnBQ" name="Recordatorio enviado " incoming="_APkpOD9eEfCjzYkFkhOnBQ">
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="_APkpFj9eEfCjzYkFkhOnBQ" name="" content="" returnTypeFixed="true"/>
+          <dynamicDescription xmi:type="expression:Expression" xmi:id="_APkpFz9eEfCjzYkFkhOnBQ" name="" content="" returnTypeFixed="true"/>
+          <stepSummary xmi:type="expression:Expression" xmi:id="_APkpGD9eEfCjzYkFkhOnBQ" name="" content="" returnTypeFixed="true"/>
+        </elements>
+      </elements>
+      <data xmi:type="process:BusinessObjectData" xmi:id="_APkpGT9eEfCjzYkFkhOnBQ" name="solicitud" dataType="_APkpWT9eEfCjzYkFkhOnBQ" className="com.company.model.SolicitudVacaciones">
+        <defaultValue xmi:type="expression:Expression" xmi:id="_APkpGj9eEfCjzYkFkhOnBQ" name="initSolicitud()" content="import org.bonitasoft.engine.identity.UserNotFoundException&#xA;&#xA;def solicitudVacacionesVar = new com.company.model.SolicitudVacaciones()&#xA;solicitudVacacionesVar.fechaInicio = solicitudInput?.fechaInicio&#xA;solicitudVacacionesVar.numeroDias = solicitudInput?.numeroDias&#xA;try{&#xA;&#x9;def processInitiator = apiAccessor.getIdentityAPI().getUser(apiAccessor.getProcessAPI()&#xA;&#x9;&#x9;&#x9;.getProcessInstance(processInstanceId)&#xA;&#x9;&#x9;&#x9;.getStartedBy())&#xA;&#x9;solicitudVacacionesVar.solicitanteId = processInitiator.id&#xA;}catch(UserNotFoundException e){&#xA;&#x9;// Handle UserNotFoundException here&#xA;&#x9;// Was the process started by the system (e.g.: a start event) ?&#xA;&#x9;// Has the user who started the process instance been deleted ?&#xA;}&#xA;return solicitudVacacionesVar" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="com.company.model.SolicitudVacaciones">
+          <referencedElements xmi:type="process:ContractInput" xmi:id="_APkpGz9eEfCjzYkFkhOnBQ" name="solicitudInput" type="COMPLEX"/>
+          <referencedElements xmi:type="expression:Expression" xmi:id="_APkpHD9eEfCjzYkFkhOnBQ" name="processInstanceId" content="processInstanceId" type="TYPE_ENGINE_CONSTANT" returnType="java.lang.Long"/>
+          <referencedElements xmi:type="expression:Expression" xmi:id="_APkpHT9eEfCjzYkFkhOnBQ" name="apiAccessor" content="apiAccessor" type="TYPE_ENGINE_CONSTANT" returnType="org.bonitasoft.engine.api.APIAccessor"/>
+        </defaultValue>
+      </data>
+      <formMapping xmi:type="process:FormMapping" xmi:id="_APkpHj9eEfCjzYkFkhOnBQ">
+        <targetForm xmi:type="expression:Expression" xmi:id="_HkkgcD9eEfCjzYkFkhOnBQ" name="ingresarSolicitudVacaciones" content="76407f81-b8ea-4092-b518-4b63b04100dd" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+      </formMapping>
+      <overviewFormMapping xmi:type="process:FormMapping" xmi:id="_APkpID9eEfCjzYkFkhOnBQ">
+        <targetForm xmi:type="expression:Expression" xmi:id="_APkpIT9eEfCjzYkFkhOnBQ" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+      </overviewFormMapping>
+      <connections xmi:type="process:SequenceFlow" xmi:id="_APkpIj9eEfCjzYkFkhOnBQ" target="_APko1z9eEfCjzYkFkhOnBQ" source="_APko0z9eEfCjzYkFkhOnBQ">
+        <decisionTable xmi:type="decision:DecisionTable" xmi:id="_APkpIz9eEfCjzYkFkhOnBQ"/>
+        <condition xmi:type="expression:Expression" xmi:id="_APkpJD9eEfCjzYkFkhOnBQ" name="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+      </connections>
+      <connections xmi:type="process:SequenceFlow" xmi:id="_APkpJT9eEfCjzYkFkhOnBQ" target="_APko7j9eEfCjzYkFkhOnBQ" source="_APko1z9eEfCjzYkFkhOnBQ">
+        <decisionTable xmi:type="decision:DecisionTable" xmi:id="_APkpJj9eEfCjzYkFkhOnBQ"/>
+        <condition xmi:type="expression:Expression" xmi:id="_APkpJz9eEfCjzYkFkhOnBQ" name="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+      </connections>
+      <connections xmi:type="process:SequenceFlow" xmi:id="_APkpKD9eEfCjzYkFkhOnBQ" name="Sí" target="_APko8j9eEfCjzYkFkhOnBQ" source="_APko7j9eEfCjzYkFkhOnBQ">
+        <decisionTable xmi:type="decision:DecisionTable" xmi:id="_APkpKT9eEfCjzYkFkhOnBQ"/>
+        <condition xmi:type="expression:Expression" xmi:id="_APkpKj9eEfCjzYkFkhOnBQ" name="newScript()" content="solicitud.estaAprobado" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Boolean" returnTypeFixed="true">
+          <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_APkpKz9eEfCjzYkFkhOnBQ" name="solicitud" dataType="_APkpWT9eEfCjzYkFkhOnBQ" className="com.company.model.SolicitudVacaciones"/>
+        </condition>
+      </connections>
+      <connections xmi:type="process:SequenceFlow" xmi:id="_APkpLD9eEfCjzYkFkhOnBQ" name="No" target="_APko-z9eEfCjzYkFkhOnBQ" source="_APko7j9eEfCjzYkFkhOnBQ" isDefault="true">
+        <decisionTable xmi:type="decision:DecisionTable" xmi:id="_APkpLT9eEfCjzYkFkhOnBQ"/>
+        <condition xmi:type="expression:Expression" xmi:id="_APkpLj9eEfCjzYkFkhOnBQ" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+      </connections>
+      <connections xmi:type="process:SequenceFlow" xmi:id="_APkpLz9eEfCjzYkFkhOnBQ" target="_APkpBD9eEfCjzYkFkhOnBQ" source="_APko8j9eEfCjzYkFkhOnBQ">
+        <decisionTable xmi:type="decision:DecisionTable" xmi:id="_APkpMD9eEfCjzYkFkhOnBQ"/>
+        <condition xmi:type="expression:Expression" xmi:id="_APkpMT9eEfCjzYkFkhOnBQ" name="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+      </connections>
+      <connections xmi:type="process:SequenceFlow" xmi:id="_APkpMj9eEfCjzYkFkhOnBQ" target="_APkpCD9eEfCjzYkFkhOnBQ" source="_APko-z9eEfCjzYkFkhOnBQ">
+        <decisionTable xmi:type="decision:DecisionTable" xmi:id="_APkpMz9eEfCjzYkFkhOnBQ"/>
+        <condition xmi:type="expression:Expression" xmi:id="_APkpND9eEfCjzYkFkhOnBQ" name="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+      </connections>
+      <connections xmi:type="process:SequenceFlow" xmi:id="_APkpNT9eEfCjzYkFkhOnBQ" target="_APkpDD9eEfCjzYkFkhOnBQ" source="_APko5j9eEfCjzYkFkhOnBQ">
+        <decisionTable xmi:type="decision:DecisionTable" xmi:id="_APkpNj9eEfCjzYkFkhOnBQ"/>
+        <condition xmi:type="expression:Expression" xmi:id="_APkpNz9eEfCjzYkFkhOnBQ" name="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+      </connections>
+      <connections xmi:type="process:SequenceFlow" xmi:id="_APkpOD9eEfCjzYkFkhOnBQ" target="_APkpFT9eEfCjzYkFkhOnBQ" source="_APkpDD9eEfCjzYkFkhOnBQ">
+        <decisionTable xmi:type="decision:DecisionTable" xmi:id="_APkpOT9eEfCjzYkFkhOnBQ"/>
+        <condition xmi:type="expression:Expression" xmi:id="_APkpOj9eEfCjzYkFkhOnBQ" name="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+      </connections>
+      <actors xmi:type="process:Actor" xmi:id="_APkpOz9eEfCjzYkFkhOnBQ" documentation="Este es un ejemplo de actor que está mapeado a cualquier usuario de la organización ACME" name="Employee actor" initiator="true"/>
+      <contract xmi:type="process:Contract" xmi:id="_APkpPD9eEfCjzYkFkhOnBQ">
+        <inputs xmi:type="process:ContractInput" xmi:id="_APkpPT9eEfCjzYkFkhOnBQ" name="solicitudInput" type="COMPLEX" dataReference="solicitud">
+          <inputs xmi:type="process:ContractInput" xmi:id="_APkpPj9eEfCjzYkFkhOnBQ" name="fechaInicio" type="LOCALDATE"/>
+          <inputs xmi:type="process:ContractInput" xmi:id="_APkpPz9eEfCjzYkFkhOnBQ" name="numeroDias" type="INTEGER"/>
+        </inputs>
+        <constraints xmi:type="process:ContractConstraint" xmi:id="_APkpQD9eEfCjzYkFkhOnBQ" expression="solicitudInput?.fechaInicio != null" errorMessage="fechaInicio is mandatory for SolicitudVacaciones" name="mandatory_solicitudInput_fechaInicio">
+          <inputNames>solicitudInput</inputNames>
+        </constraints>
+        <constraints xmi:type="process:ContractConstraint" xmi:id="_APkpQT9eEfCjzYkFkhOnBQ" expression="solicitudInput?.numeroDias != null" errorMessage="numeroDias is mandatory for SolicitudVacaciones" name="mandatory_solicitudInput_numeroDias">
+          <inputNames>solicitudInput</inputNames>
+        </constraints>
+      </contract>
+      <searchIndexes xmi:type="process:SearchIndex" xmi:id="_APkpQj9eEfCjzYkFkhOnBQ">
+        <name xmi:type="expression:Expression" xmi:id="_APkpQz9eEfCjzYkFkhOnBQ" content="" returnTypeFixed="true"/>
+        <value xmi:type="expression:Expression" xmi:id="_APkpRD9eEfCjzYkFkhOnBQ" content="" returnTypeFixed="true"/>
+      </searchIndexes>
+      <searchIndexes xmi:type="process:SearchIndex" xmi:id="_APkpRT9eEfCjzYkFkhOnBQ">
+        <name xmi:type="expression:Expression" xmi:id="_APkpRj9eEfCjzYkFkhOnBQ" content="" returnTypeFixed="true"/>
+        <value xmi:type="expression:Expression" xmi:id="_APkpRz9eEfCjzYkFkhOnBQ" content="" returnTypeFixed="true"/>
+      </searchIndexes>
+      <searchIndexes xmi:type="process:SearchIndex" xmi:id="_APkpSD9eEfCjzYkFkhOnBQ">
+        <name xmi:type="expression:Expression" xmi:id="_APkpST9eEfCjzYkFkhOnBQ" content="" returnTypeFixed="true"/>
+        <value xmi:type="expression:Expression" xmi:id="_APkpSj9eEfCjzYkFkhOnBQ" content="" returnTypeFixed="true"/>
+      </searchIndexes>
+      <searchIndexes xmi:type="process:SearchIndex" xmi:id="_APkpSz9eEfCjzYkFkhOnBQ">
+        <name xmi:type="expression:Expression" xmi:id="_APkpTD9eEfCjzYkFkhOnBQ" content="" returnTypeFixed="true"/>
+        <value xmi:type="expression:Expression" xmi:id="_APkpTT9eEfCjzYkFkhOnBQ" content="" returnTypeFixed="true"/>
+      </searchIndexes>
+      <searchIndexes xmi:type="process:SearchIndex" xmi:id="_APkpTj9eEfCjzYkFkhOnBQ">
+        <name xmi:type="expression:Expression" xmi:id="_APkpTz9eEfCjzYkFkhOnBQ" content="" returnTypeFixed="true"/>
+        <value xmi:type="expression:Expression" xmi:id="_APkpUD9eEfCjzYkFkhOnBQ" content="" returnTypeFixed="true"/>
+      </searchIndexes>
+    </elements>
+    <datatypes xmi:type="process:BooleanType" xmi:id="_APkpUT9eEfCjzYkFkhOnBQ" name="Boolean"/>
+    <datatypes xmi:type="process:DateType" xmi:id="_APkpUj9eEfCjzYkFkhOnBQ" name="Date"/>
+    <datatypes xmi:type="process:IntegerType" xmi:id="_APkpUz9eEfCjzYkFkhOnBQ" name="Integer"/>
+    <datatypes xmi:type="process:LongType" xmi:id="_APkpVD9eEfCjzYkFkhOnBQ" name="Long"/>
+    <datatypes xmi:type="process:DoubleType" xmi:id="_APkpVT9eEfCjzYkFkhOnBQ" name="Double"/>
+    <datatypes xmi:type="process:StringType" xmi:id="_APkpVj9eEfCjzYkFkhOnBQ" name="Text"/>
+    <datatypes xmi:type="process:JavaType" xmi:id="_APkpVz9eEfCjzYkFkhOnBQ" name="Java_object"/>
+    <datatypes xmi:type="process:XMLType" xmi:id="_APkpWD9eEfCjzYkFkhOnBQ" name="XML"/>
+    <datatypes xmi:type="process:BusinessObjectType" xmi:id="_APkpWT9eEfCjzYkFkhOnBQ" name="Business_Object"/>
+  </process:MainProcess>
+  <notation:Diagram xmi:id="_APkpWj9eEfCjzYkFkhOnBQ" type="Process" element="_APko0D9eEfCjzYkFkhOnBQ" name="MiDiagrama" measurementUnit="Pixel">
+    <children xmi:type="notation:Node" xmi:id="_APkpWz9eEfCjzYkFkhOnBQ" type="2007" element="_APko0T9eEfCjzYkFkhOnBQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_APkpXD9eEfCjzYkFkhOnBQ" type="5008"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_APkpXT9eEfCjzYkFkhOnBQ" type="7001">
+        <children xmi:type="notation:Node" xmi:id="_APkpXj9eEfCjzYkFkhOnBQ" type="3007" element="_APko0j9eEfCjzYkFkhOnBQ">
+          <children xmi:type="notation:DecorationNode" xmi:id="_APkpXz9eEfCjzYkFkhOnBQ" type="5007"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_APkpYD9eEfCjzYkFkhOnBQ" type="7002">
+            <children xmi:type="notation:Shape" xmi:id="_APkpYT9eEfCjzYkFkhOnBQ" type="3005" element="_APko1z9eEfCjzYkFkhOnBQ" fontName=".AppleSystemUIFont" fillColor="14334392" lineColor="10710316">
+              <children xmi:type="notation:DecorationNode" xmi:id="_APkpYj9eEfCjzYkFkhOnBQ" type="5005"/>
+              <children xmi:type="notation:Shape" xmi:id="_APkpYz9eEfCjzYkFkhOnBQ" type="3064" element="_APko5j9eEfCjzYkFkhOnBQ" fontName=".AppleSystemUIFont">
+                <children xmi:type="notation:DecorationNode" xmi:id="_APkpZD9eEfCjzYkFkhOnBQ" type="5094">
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_APkpZT9eEfCjzYkFkhOnBQ" y="5"/>
+                </children>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_APkpZj9eEfCjzYkFkhOnBQ"/>
+              </children>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_APkpZz9eEfCjzYkFkhOnBQ" x="160" y="60"/>
+            </children>
+            <children xmi:type="notation:Shape" xmi:id="_APkpaD9eEfCjzYkFkhOnBQ" type="3002" element="_APko0z9eEfCjzYkFkhOnBQ" fontName=".AppleSystemUIFont">
+              <children xmi:type="notation:DecorationNode" xmi:id="_APkpaT9eEfCjzYkFkhOnBQ" type="5024">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_APkpaj9eEfCjzYkFkhOnBQ" y="5"/>
+              </children>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_APkpaz9eEfCjzYkFkhOnBQ" x="60" y="68"/>
+            </children>
+            <children xmi:type="notation:Shape" xmi:id="_APkpbD9eEfCjzYkFkhOnBQ" type="3008" element="_APko7j9eEfCjzYkFkhOnBQ" fontName=".AppleSystemUIFont">
+              <children xmi:type="notation:DecorationNode" xmi:id="_APkpbT9eEfCjzYkFkhOnBQ" type="5026">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_APkpbj9eEfCjzYkFkhOnBQ" y="5"/>
+              </children>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_APkpbz9eEfCjzYkFkhOnBQ" x="315" y="67" width="43" height="43"/>
+            </children>
+            <children xmi:type="notation:Shape" xmi:id="_APkpcD9eEfCjzYkFkhOnBQ" type="3027" element="_APko8j9eEfCjzYkFkhOnBQ" fontName=".AppleSystemUIFont" fillColor="14334392" lineColor="10710316">
+              <children xmi:type="notation:DecorationNode" xmi:id="_APkpcT9eEfCjzYkFkhOnBQ" type="5017"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_APkpcj9eEfCjzYkFkhOnBQ" x="441" y="13" width="120" height="60"/>
+            </children>
+            <children xmi:type="notation:Shape" xmi:id="_APkpcz9eEfCjzYkFkhOnBQ" type="3027" element="_APko-z9eEfCjzYkFkhOnBQ" fontName=".AppleSystemUIFont" fillColor="14334392" lineColor="10710316">
+              <children xmi:type="notation:DecorationNode" xmi:id="_APkpdD9eEfCjzYkFkhOnBQ" type="5017"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_APkpdT9eEfCjzYkFkhOnBQ" x="461" y="99"/>
+            </children>
+            <children xmi:type="notation:Shape" xmi:id="_APkpdj9eEfCjzYkFkhOnBQ" type="3003" element="_APkpBD9eEfCjzYkFkhOnBQ" fontName=".AppleSystemUIFont">
+              <children xmi:type="notation:DecorationNode" xmi:id="_APkpdz9eEfCjzYkFkhOnBQ" type="5025">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_APkpeD9eEfCjzYkFkhOnBQ" y="5"/>
+              </children>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_APkpeT9eEfCjzYkFkhOnBQ" x="596" y="28"/>
+            </children>
+            <children xmi:type="notation:Shape" xmi:id="_APkpej9eEfCjzYkFkhOnBQ" type="3003" element="_APkpCD9eEfCjzYkFkhOnBQ" fontName=".AppleSystemUIFont">
+              <children xmi:type="notation:DecorationNode" xmi:id="_APkpez9eEfCjzYkFkhOnBQ" type="5025">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_APkpfD9eEfCjzYkFkhOnBQ" y="5"/>
+              </children>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_APkpfT9eEfCjzYkFkhOnBQ" x="596" y="109"/>
+            </children>
+            <children xmi:type="notation:Shape" xmi:id="_APkpfj9eEfCjzYkFkhOnBQ" type="3027" element="_APkpDD9eEfCjzYkFkhOnBQ" fontName=".AppleSystemUIFont" fillColor="14334392" lineColor="10710316">
+              <children xmi:type="notation:DecorationNode" xmi:id="_APkpfz9eEfCjzYkFkhOnBQ" type="5017"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_APkpgD9eEfCjzYkFkhOnBQ" x="133" y="168" width="120" height="60"/>
+            </children>
+            <children xmi:type="notation:Shape" xmi:id="_APkpgT9eEfCjzYkFkhOnBQ" type="3003" element="_APkpFT9eEfCjzYkFkhOnBQ" fontName=".AppleSystemUIFont">
+              <children xmi:type="notation:DecorationNode" xmi:id="_APkpgj9eEfCjzYkFkhOnBQ" type="5025">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_APkpgz9eEfCjzYkFkhOnBQ" y="5"/>
+              </children>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_APkphD9eEfCjzYkFkhOnBQ" x="357" y="194"/>
+            </children>
+          </children>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_APkphT9eEfCjzYkFkhOnBQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_APkphj9eEfCjzYkFkhOnBQ" fontName=".AppleSystemUIFont"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_APkphz9eEfCjzYkFkhOnBQ"/>
+          <styles xmi:type="notation:FillStyle" xmi:id="_APkpiD9eEfCjzYkFkhOnBQ"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_APkpiT9eEfCjzYkFkhOnBQ" x="44" y="10" width="851" height="288"/>
+        </children>
+      </children>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_APkpij9eEfCjzYkFkhOnBQ"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_APkpiz9eEfCjzYkFkhOnBQ" fontName=".AppleSystemUIFont"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_APkpjD9eEfCjzYkFkhOnBQ"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_APkpjT9eEfCjzYkFkhOnBQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_APkpjj9eEfCjzYkFkhOnBQ" width="870" height="250"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_APkpjz9eEfCjzYkFkhOnBQ"/>
+    <edges xmi:type="notation:Connector" xmi:id="_APkpkD9eEfCjzYkFkhOnBQ" type="4001" element="_APkpIj9eEfCjzYkFkhOnBQ" source="_APkpaD9eEfCjzYkFkhOnBQ" target="_APkpYT9eEfCjzYkFkhOnBQ" roundedBendpointsRadius="10" routing="Rectilinear">
+      <children xmi:type="notation:DecorationNode" xmi:id="_APkpkT9eEfCjzYkFkhOnBQ" type="6001">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_APkpkj9eEfCjzYkFkhOnBQ" y="-10"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_APkpkz9eEfCjzYkFkhOnBQ" fontName=".AppleSystemUIFont"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_APkplD9eEfCjzYkFkhOnBQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_APkplT9eEfCjzYkFkhOnBQ" type="4001" element="_APkpJT9eEfCjzYkFkhOnBQ" source="_APkpYT9eEfCjzYkFkhOnBQ" target="_APkpbD9eEfCjzYkFkhOnBQ" roundedBendpointsRadius="10" routing="Rectilinear">
+      <children xmi:type="notation:DecorationNode" xmi:id="_APkplj9eEfCjzYkFkhOnBQ" type="6001">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_APkplz9eEfCjzYkFkhOnBQ" y="-10"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_APkpmD9eEfCjzYkFkhOnBQ" fontName=".AppleSystemUIFont"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_APkpmT9eEfCjzYkFkhOnBQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_APkpmj9eEfCjzYkFkhOnBQ" type="4001" element="_APkpKD9eEfCjzYkFkhOnBQ" source="_APkpbD9eEfCjzYkFkhOnBQ" target="_APkpcD9eEfCjzYkFkhOnBQ" roundedBendpointsRadius="10" routing="Rectilinear">
+      <children xmi:type="notation:DecorationNode" xmi:id="_APkpmz9eEfCjzYkFkhOnBQ" type="6001">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_APkpnD9eEfCjzYkFkhOnBQ" y="-10"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_APkpnT9eEfCjzYkFkhOnBQ" fontName=".AppleSystemUIFont"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_APkpnj9eEfCjzYkFkhOnBQ" points="[1, -25, -93, 46]$[51, -25, -43, 46]$[51, -38, -43, 33]$[93, -38, -1, 33]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_APkpnz9eEfCjzYkFkhOnBQ" id="(0.7674418604651163,0.8837209302325582)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_APkpoD9eEfCjzYkFkhOnBQ" id="(0.008333333333333333,0.35)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_APkpoT9eEfCjzYkFkhOnBQ" type="4001" element="_APkpLD9eEfCjzYkFkhOnBQ" source="_APkpbD9eEfCjzYkFkhOnBQ" target="_APkpcz9eEfCjzYkFkhOnBQ" roundedBendpointsRadius="10" routing="Rectilinear">
+      <children xmi:type="notation:DecorationNode" xmi:id="_APkpoj9eEfCjzYkFkhOnBQ" type="6001">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_APkpoz9eEfCjzYkFkhOnBQ" y="-10"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_APkppD9eEfCjzYkFkhOnBQ" fontName=".AppleSystemUIFont"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_APkppT9eEfCjzYkFkhOnBQ" points="[0, 22, -175, -14]$[125, 22, -50, -14]"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_APkppj9eEfCjzYkFkhOnBQ" id="(0.02,0.54)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_APkppz9eEfCjzYkFkhOnBQ" type="4001" element="_APkpLz9eEfCjzYkFkhOnBQ" source="_APkpcD9eEfCjzYkFkhOnBQ" target="_APkpdj9eEfCjzYkFkhOnBQ" roundedBendpointsRadius="10" routing="Rectilinear">
+      <children xmi:type="notation:DecorationNode" xmi:id="_APkpqD9eEfCjzYkFkhOnBQ" type="6001">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_APkpqT9eEfCjzYkFkhOnBQ" y="-10"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_APkpqj9eEfCjzYkFkhOnBQ" fontName=".AppleSystemUIFont"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_APkpqz9eEfCjzYkFkhOnBQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_APkprD9eEfCjzYkFkhOnBQ" type="4001" element="_APkpMj9eEfCjzYkFkhOnBQ" source="_APkpcz9eEfCjzYkFkhOnBQ" target="_APkpej9eEfCjzYkFkhOnBQ" roundedBendpointsRadius="10" routing="Rectilinear">
+      <children xmi:type="notation:DecorationNode" xmi:id="_APkprT9eEfCjzYkFkhOnBQ" type="6001">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_APkprj9eEfCjzYkFkhOnBQ" y="-10"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_APkprz9eEfCjzYkFkhOnBQ" fontName=".AppleSystemUIFont"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_APkpsD9eEfCjzYkFkhOnBQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_APkpsT9eEfCjzYkFkhOnBQ" type="4001" element="_APkpNT9eEfCjzYkFkhOnBQ" source="_APkpYz9eEfCjzYkFkhOnBQ" target="_APkpfj9eEfCjzYkFkhOnBQ" roundedBendpointsRadius="10" routing="Rectilinear">
+      <children xmi:type="notation:DecorationNode" xmi:id="_APkpsj9eEfCjzYkFkhOnBQ" type="6001">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_APkpsz9eEfCjzYkFkhOnBQ" y="-10"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_APkptD9eEfCjzYkFkhOnBQ" fontName=".AppleSystemUIFont"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_APkptT9eEfCjzYkFkhOnBQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_APkptj9eEfCjzYkFkhOnBQ" type="4001" element="_APkpOD9eEfCjzYkFkhOnBQ" source="_APkpfj9eEfCjzYkFkhOnBQ" target="_APkpgT9eEfCjzYkFkhOnBQ" roundedBendpointsRadius="10" routing="Rectilinear">
+      <children xmi:type="notation:DecorationNode" xmi:id="_APkptz9eEfCjzYkFkhOnBQ" type="6001">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_APkpuD9eEfCjzYkFkhOnBQ" y="-10"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_APkpuT9eEfCjzYkFkhOnBQ" fontName=".AppleSystemUIFont"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_APkpuj9eEfCjzYkFkhOnBQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+  </notation:Diagram>
+</xmi:XMI>
